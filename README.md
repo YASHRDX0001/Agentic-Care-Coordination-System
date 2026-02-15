@@ -41,4 +41,7 @@ Design and implement an AI-based healthcare operations system that:
 ## Setup
 1.  Clone the repository.
 2.  Install dependencies: `pip install -r requirements.txt`
-3.  Run the application: `streamlit run src/app/main.py` (example)
+3.  Run the application:
+    ```bash
+    streamlit run src/app/main.py
+    ```
