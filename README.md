@@ -5,12 +5,6 @@ Design and implement an AI-based healthcare operations system that:
 1.  Predicts patient appointment no-shows using historical scheduling data.
 2.  Extends into an agentic AI assistant that generates actionable care coordination and intervention recommendations.
 
-## Requirements & Constraints
--   **Team Size:** 3-4 students
--   **APIs:** No paid APIs allowed. Only free-tier or open-source models.
--   **Interface:** Mandatory user interface (Streamlit/Gradio).
--   **Deployment:** Must be publicly hosted (e.g., Hugging Face Spaces, Streamlit Community Cloud, Render). Localhost demos are not accepted.
-
 ## Milestones
 
 ### Milestone 1: ML-Based Appointment No-Show Prediction (Mid-Sem)
