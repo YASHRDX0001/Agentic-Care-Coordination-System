@@ -1,0 +1,29 @@
+
+# Data Manipulation & Analysis
+pandas
+numpy
+
+# Machine Learning
+scikit-learn
+
+# Visualization
+matplotlib
+seaborn
+
+# AI Agents & LLMs
+langgraph
+langchain
+langchain-openai
+langchain-community
+
+# Vector Database (Optional)
+chromadb
+faiss-cpu
+
+# User Interface
+streamlit
+gradio
+
+# Utilities
+python-dotenv
+tqdm
