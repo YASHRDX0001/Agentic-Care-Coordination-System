@@ -29,42 +29,42 @@ def main():
 
     # File Uploader
     st.header("1. Data Upload & Preprocessing")
-    uploaded_file = st.file_uploader("Upload your appointment data (CSV)", type=["csv"])
+    dataset_file = st.file_uploader("Upload your appointment data (CSV)", type=["csv"])
 
-    if uploaded_file is not None:
+    if dataset_file is not None:
         try:
             # Load data
-            raw_df = load_data(uploaded_file)
+            raw_appointment_data = load_data(dataset_file)
             
             # Preprocess
-            df = preprocess_data(raw_df)
+            processed_data = preprocess_data(raw_appointment_data)
             
             # Success message
             st.success(f"Successfully loaded and preprocessed dataset.")
             
-            col1, col2 = st.columns(2)
-            with col1:
-                st.metric("Total Records", df.shape[0])
-            with col2:
-                st.metric("Total Features", df.shape[1])
+            records_col, features_col = st.columns(2)
+            with records_col:
+                st.metric("Total Records", processed_data.shape[0])
+            with features_col:
+                st.metric("Total Features", processed_data.shape[1])
 
             # Data Preview
             st.subheader("Preprocessed Data Preview")
-            st.dataframe(df.head())
+            st.dataframe(processed_data.head())
             
             # Show new feature
-            if 'LeadTime' in df.columns:
+            if 'LeadTime' in processed_data.columns:
                 st.info("✨ **Feature Engineering**: Calculated `LeadTime` (days between scheduling and appointment).")
-                st.bar_chart(df['LeadTime'].value_counts().head(20))
+                st.bar_chart(processed_data['LeadTime'].value_counts().head(20))
             
             # Data Statistics
             with st.expander("View Detailed Statistics"):
-                st.write(df.describe())
+                st.write(processed_data.describe())
             
             # Missing Values
-            if df.isnull().sum().sum() > 0:
+            if processed_data.isnull().sum().sum() > 0:
                 st.warning("⚠️ This dataset contains missing values.")
-                st.write(df.isnull().sum()[df.isnull().sum() > 0])
+                st.write(processed_data.isnull().sum()[processed_data.isnull().sum() > 0])
             else:
                 st.info("✅ No missing values detected.")
                 
