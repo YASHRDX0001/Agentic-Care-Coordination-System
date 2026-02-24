@@ -2,11 +2,20 @@ import streamlit as st
 import pandas as pd
 import os
 import sys
+import importlib.util
+from pathlib import Path
 
-# Add the project's src/ directory to the python path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+# Resolve path to preprocessor.py relative to this file
+_current_dir = Path(__file__).resolve().parent          # src/app/
+_preprocessor_path = _current_dir.parent / "data" / "preprocessor.py"  # src/data/preprocessor.py
 
-from data.preprocessor import load_data, preprocess_data
+# Load the module directly using importlib (works on Streamlit Cloud)
+_spec = importlib.util.spec_from_file_location("preprocessor", str(_preprocessor_path))
+_preprocessor = importlib.util.module_from_spec(_spec)
+_spec.loader.exec_module(_preprocessor)
+
+load_data = _preprocessor.load_data
+preprocess_data = _preprocessor.preprocess_data
 
 # Page configuration
 st.set_page_config(
