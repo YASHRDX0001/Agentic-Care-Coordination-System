@@ -142,4 +142,7 @@ pip install -r requirements.txt
 streamlit run src/app/main.py
 ```
 
-The application will launch in your default web browser.
+The application will automatically launch in your default web browser. If it doesn't, you can manually open it by navigating to:
+```text
+http://localhost:8501
+```
