@@ -17,7 +17,7 @@ env.bak/
 venv.bak/
 
 # Project Data (exclude raw/processed data from git)
-data/
+/data/
 !data/.gitkeep
 
 # IDEs
