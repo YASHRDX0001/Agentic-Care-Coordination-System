@@ -3,10 +3,10 @@ import pandas as pd
 import os
 import sys
 
-# Add the project root to the python path so we can import from src
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+# Add the project's src/ directory to the python path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from src.data.preprocessor import load_data, preprocess_data
+from data.preprocessor import load_data, preprocess_data
 
 # Page configuration
 st.set_page_config(
